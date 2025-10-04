@@ -42,8 +42,6 @@ This automation performs the following:
 
 Type: HTTP Request (GET)
 
-URL: https://api.brightdata.com/datasets/v3/progress/{{ $json.snapshot_id }}
-
 Headers:
 
 Authorization: Bearer BRIGHT_DATA_API_KEY
