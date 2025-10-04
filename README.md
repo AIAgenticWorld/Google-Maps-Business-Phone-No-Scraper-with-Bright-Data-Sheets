@@ -30,7 +30,6 @@ This automation performs the following:
 
 ### 2. **Bright Data API – Request Business Data**
 - **Type:** HTTP Request (POST)
-- **URL:** `https://api.brightdata.com/datasets/v3/trigger`
 - **Headers:**
   - `Authorization: Bearer BRIGHT_DATA_API_KEY`
 - **Query Parameters:**
@@ -39,23 +38,6 @@ This automation performs the following:
   - `type: discover_new`
   - `discover_by: location`
   - `limit_per_input: 2`
-- **Request Body:**
-  ```json
-  {
-    "input": [
-      {
-        "country": "{{ $json.Location }}",
-        "keyword": "{{ $json.keywords }}",
-        "lat": ""
-      }
-    ],
-    "custom_output_fields": [
-      "url", "country", "name", "address", "description", "open_hours",
-      "reviews_count", "rating", "reviews", "services_provided",
-      "open_website", "phone_number", "permanently_closed",
-      "photos_and_videos", "people_also_search"
-    ]
-  }
 3. Check Scraping Status
 
 Type: HTTP Request (GET)
@@ -93,8 +75,6 @@ Condition: {{ $json.records }} not equals 0
 7. Fetch Business Data
 
 Type: HTTP Request (GET)
-
-URL: https://api.brightdata.com/datasets/v3/snapshot/{{ $json.snapshot_id }}
 
 Headers:
 
